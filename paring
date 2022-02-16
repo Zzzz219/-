@@ -1,0 +1,10 @@
+X_returns = np.random.normal(1, 1, 100)
+Y_returns = np.random.normal(2, 1, 100)
+
+X_diverging = pd.Series(np.cumsum(X_returns), name='X')
+Y_diverging = pd.Series(np.cumsum(Y_returns), name='Y')
+
+
+pd.concat([X_diverging, Y_diverging], axis=1).plot(figsize=(12,6));
+plt.xlim(0, 99)
+plt.show()
